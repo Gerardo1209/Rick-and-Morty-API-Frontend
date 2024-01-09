@@ -56,3 +56,9 @@ a{
     max-width: 80px;
   }
 }
+
+@media screen and (max-width: 350px) {
+  #search{
+    max-width: 55px;
+  }
+}

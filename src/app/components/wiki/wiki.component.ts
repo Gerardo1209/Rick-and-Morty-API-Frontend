@@ -51,16 +51,16 @@ export class WikiComponent implements OnDestroy{
         if(this.currentPage==undefined) return
         switch (page) {
           case 1:
-            this.pagesArray = this.createArray(page, page + 3)
+            this.pagesArray = this.createArray(page, page + 4)
             break;
           case 2:
-            this.pagesArray = this.createArray(page-1, page+2)
+            this.pagesArray = this.createArray(page-1, page+3)
             break;
           case (this.currentPage.info.pages-1):
-              this.pagesArray = this.createArray(page-2, page+1)
+              this.pagesArray = this.createArray(page-3, page+1)
               break;
           case this.currentPage.info.pages:
-            this.pagesArray = this.createArray(page-3, page)
+            this.pagesArray = this.createArray(page-4, page)
             break;
           default:
             this.pagesArray = this.createArray(page-1, page+1)

@@ -1,3 +1,7 @@
 #spinner{
   height: 400px;
 }
+
+.spinner-border{
+  translate: 0px 190px;
+}

@@ -1,1 +1,21 @@
-<p>card works!</p>
+<div class="card" [routerLink]="character ? '/detail/'+character.id : '#'">
+  @if (character) {
+    <img [src]="character.image" class="card-img-top" [alt]="character.name">
+  }@else {
+    <div class="card-img-top h-75">
+      <div class="spinner-border" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>
+  }
+  <div class="card-body">
+    <h5 class="card-title text-center" [ngClass]="{'placeholder-glow': !character}">
+
+      @if (character) {
+        {{character.name}}
+      }@else {
+        <span class="placeholder col-8"></span>
+      }
+    </h5>
+  </div>
+</div>

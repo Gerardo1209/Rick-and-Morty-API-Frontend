@@ -1,1 +1,202 @@
-<p>detail works!</p>
+<div class="container">
+  <div class="card mt-5 mb-5">
+    <div class="row g-0">
+      <div class="col-md-7">
+        @if (character) {
+        <img
+          [src]="character.image"
+          class="w-100 rounded-start rounded-top rounded-bottom"
+          [alt]="character.name"
+        />
+        }@else {
+        <div
+          id="spinner"
+          class="d-flex justify-content-center align-content-center"
+        >
+          <div class="spinner-border" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+        </div>
+        }
+      </div>
+      <div class="col-md-5">
+        <div class="card-body">
+          <h1
+            class="card-title text-center"
+            [ngClass]="{ 'placeholder-glow': !character }"
+          >
+            @if (character) {
+            {{ character.name }}
+            }@else {
+            <span class="placeholder col-8"></span>
+            }
+          </h1>
+        </div>
+        <div>
+          <ul class="nav justify-content-center nav-tabs">
+            <li class="nav-item">
+              <button
+                class="nav-link"
+                (click)="location = false; episodes = false; information = true"
+                [ngClass]="{ active: information }"
+              >
+                Information
+              </button>
+            </li>
+            <li class="nav-item">
+              <button
+                class="nav-link"
+                (click)="information = false; episodes = false; location = true"
+                [ngClass]="{ active: location }"
+              >
+                Location
+              </button>
+            </li>
+            <li class="nav-item">
+              <button
+                class="nav-link"
+                (click)="information = false; location = false; episodes = true"
+                [ngClass]="{ active: episodes }"
+              >
+                Episodes
+              </button>
+            </li>
+          </ul>
+          <div class="card-body">
+            @if (information) {
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item" [ngClass]="{ 'placeholder-glow': !character }">
+                ID:
+                @if (character) {
+                  {{character.id}}
+                }@else {
+                  <span class="placeholder col-8"></span>
+                }
+              </li>
+              <li class="list-group-item" [ngClass]="{ 'placeholder-glow': !character }">
+                Status:
+                @if (character) {
+                  @switch (character.status) {
+                    @case ("Alive") {
+                      <i style="color: yellowgreen" class="fa-solid fa-circle"></i>
+                    }
+                    @case ("Dead") {
+                      <i style="color: red" class="fa-solid fa-circle"></i>
+                    }
+                    @case("unknown"){
+                      <i style="color: gray"class="fa-solid fa-circle"></i>
+                    }
+                  }
+                  {{ character.status }}
+                }@else {
+                  <span class="placeholder col-8"></span>
+                }
+
+              </li>
+              <li class="list-group-item" [ngClass]="{ 'placeholder-glow': !character }">
+                Species:
+                @if (character) {
+                  {{ character.species }}
+                }@else {
+                  <span class="placeholder col-8"></span>
+                }
+              </li>
+              <li class="list-group-item" [ngClass]="{ 'placeholder-glow': !character }">
+                Subspecies:
+                @if (character) {
+                  {{ character.type }}
+                }@else {
+                  <span class="placeholder col-8"></span>
+                }
+              </li>
+              <li class="list-group-item" [ngClass]="{ 'placeholder-glow': !character }">
+                Gender:
+                @if (character) {
+                   {{ character.gender }}
+                }@else {
+                  <span class="placeholder col-8"></span>
+                }
+              </li>
+              <li class="list-group-item" [ngClass]="{ 'placeholder-glow': !character }">
+                API URL:
+                @if (character) {
+                  <a target="_blank" [href]="character.url">{{
+                    character.name
+                  }}</a>
+                }@else {
+                  <span class="placeholder col-8"></span>
+                }
+              </li>
+              <li class="list-group-item" [ngClass]="{ 'placeholder-glow': !character }">
+                Database created:
+                @if (character) {
+                  {{ character.created | date }}
+                }@else {
+                  <span class="placeholder col-8"></span>
+                }
+              </li>
+            </ul>
+            }
+            @if (location) {
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item" [ngClass]="{ 'placeholder-glow': !locationInfo }">
+                  ID:
+                  @if (locationInfo) {
+                    {{locationInfo.id}}
+                  }@else {
+                    <span class="placeholder col-8"></span>
+                  }
+                </li>
+                <li class="list-group-item" [ngClass]="{ 'placeholder-glow': !locationInfo }">
+                  Name:
+                  @if (locationInfo) {
+                    {{locationInfo.name}}
+                  }@else {
+                    <span class="placeholder col-8"></span>
+                  }
+                </li>
+                <li class="list-group-item" [ngClass]="{ 'placeholder-glow': !locationInfo }">
+                  Type:
+                  @if (locationInfo) {
+                    {{locationInfo.type}}
+                  }@else {
+                    <span class="placeholder col-8"></span>
+                  }
+                </li>
+                <li class="list-group-item" [ngClass]="{ 'placeholder-glow': !locationInfo }">
+                  Dimension:
+                  @if (locationInfo) {
+                    {{locationInfo.dimension}}
+                  }@else {
+                    <span class="placeholder col-8"></span>
+                  }
+                </li>
+                <li class="list-group-item" [ngClass]="{ 'placeholder-glow': !locationInfo }">
+                  API URL:
+                  @if (locationInfo) {
+                    <a target="_blank" [href]="locationInfo.url">{{
+                      locationInfo.name
+                    }}</a>
+                  }@else {
+                    <span class="placeholder col-8"></span>
+                  }
+                </li>
+                <li class="list-group-item" [ngClass]="{ 'placeholder-glow': !locationInfo }">
+                  Database created:
+                  @if (locationInfo) {
+                    {{locationInfo.created|date}}
+                  }@else {
+                    <span class="placeholder col-8"></span>
+                  }
+                </li>
+              </ul>
+            }
+            @if (episodes) {
+
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,4 +1,74 @@
 <div class="container">
-  <p>wiki works!</p>
+  @if (!error) {
+    <h1 class="h1 text-center text-light my-3">Characters</h1>
+    <nav aria-label="Page navigation">
+      <ul class="pagination justify-content-center">
+        <li class="page-item" [ngClass]="{'disabled': numberPage == 1}">
+          <a class="page-link"><i class="fa-solid fa-angle-left"></i></a>
+        </li>
+        @if (pagesArray!=undefined) {
+          @if (numberPage > 2) {
+            <li class="page-item"><a class="page-link" routerLink="/wiki/1">{{1}}</a></li>
+            <li class="page-item"><a class="page-link disabled" style="cursor:default;">&#8230;</a></li>
+          }
+          @for (page of pagesArray; track $index) {
+            <li class="page-item"><a class="page-link" [ngClass]="{'active': numberPage == page}" [routerLink]="'/wiki/'+page" >{{page}}</a></li>
+          }
+          @if (numberPage < currentPage?.info?.pages! - 1) {
+            <li class="page-item"><a class="page-link disabled" style="cursor:default;">&#8230;</a></li>
+            <li class="page-item"><a class="page-link" [routerLink]="'/wiki/'+currentPage?.info?.pages">{{currentPage?.info?.pages}}</a></li>
+          }
+        }
+        <li class="page-item">
+          <a class="page-link" [ngClass]="{'disabled': numberPage==currentPage?.info?.pages}"><i class="fa-solid fa-angle-right"></i></a>
+        </li>
+      </ul>
+    </nav>
+    <div class="row row-cols-1 row-cols-sm-2
+      row-cols-md-3 row-cols-lg-4 row-cols-xl-5
+      my-3"
+      >
+      @if(loading){
+        @for (data of loadingArray; track $index) {
+          <div class="col my-2">
+            <app-card></app-card>
+          </div>
+        }
+      }@else {
+        @for (character of currentPage?.results; track $index) {
+          <div class="col my-2">
+            <app-card [character]="character"></app-card>
+          </div>
+        }
+      }
+    </div>
+    <nav aria-label="Page navigation">
+      <ul class="pagination justify-content-center">
+        <li class="page-item" [ngClass]="{'disabled': numberPage == 1}">
+          <a class="page-link" [routerLink]="'/wiki/'+(numberPage-1)"><i class="fa-solid fa-angle-left"></i></a>
+        </li>
+        @if (pagesArray!=undefined) {
+          @if (numberPage > 2) {
+            <li class="page-item"><a class="page-link" routerLink="/wiki/1">{{1}}</a></li>
+            <li class="page-item"><a class="page-link disabled" style="cursor:default;">&#8230;</a></li>
+          }
+          @for (page of pagesArray; track $index) {
+            <li class="page-item"><a class="page-link" [ngClass]="{'active': numberPage == page}" [routerLink]="'/wiki/'+page" >{{page}}</a></li>
+          }
+          @if (numberPage < currentPage?.info?.pages! - 1) {
+            <li class="page-item"><a class="page-link disabled" style="cursor:default;">&#8230;</a></li>
+            <li class="page-item"><a class="page-link" [routerLink]="'/wiki/'+currentPage?.info?.pages">{{currentPage?.info?.pages}}</a></li>
+          }
+        }
+        <li class="page-item">
+          <a class="page-link" [ngClass]="{'disabled': numberPage==currentPage?.info?.pages}" [routerLink]="'/wiki/'+(numberPage+1)"><i class="fa-solid fa-angle-right"></i></a>
+        </li>
+      </ul>
+    </nav>
+  }@else {
+    <div class="d-flex align-items-center justify-content-center vh-100 bg-primary">
+      <h1 class="display-1 fw-bold text-white">404</h1>
+    </div>
+  }
 </div>
 

@@ -9,6 +9,7 @@ The wiki page contains and shows all the characters in the API paginated by 20. 
 Here the user can see all the details of the character, like his information, las known location and all the episodes where appear. Also, in this page is a random button thats fetch a new character.
 ### Search page
 In the navbar is a search option where the user can filter by the name of the character, if no input is given the input will show an exclamation.
+If there are results for the search, a filter options will show to filter by status and gender. While the API does'nt support a fetch for other characteristics this are the only filters.
 ### Card component
 The card component uses an input to get the character information to show
 ### Navbar note

@@ -54,11 +54,18 @@ export class RickandmortyService {
     return this.httpClient.get(this.baseurl+"/episode/"+format)
   }
 
-  filterCahracterByName(query:string, page:number):Observable<Object>{
+  filterCahracter(page:number, name:string, status:string|undefined, gender:string|undefined):Observable<Object>{
     /**
      * Filtes the characters by name and the number page of the search
      */
-    return this.httpClient.get(this.baseurl+"/character/?page="+page+"&name="+query);
+    var query = ""
+    /**
+     * Creates the query with the name, status and gender
+     */
+    if(name) query += "&name=" + name
+    if(status) query += "&status=" + status
+    if(gender) query += "&gender=" + gender
+    return this.httpClient.get(this.baseurl+"/character/?page="+page+query);
   }
 
 }

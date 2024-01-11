@@ -1,3 +1,33 @@
 h2{
   color: white;
 }
+
+.float{
+  z-index: 1000;
+	position:fixed;
+	bottom:25px;
+	right:25px;
+}
+
+.floatlink{
+  transition: 0.4s;
+  background-color: #c4e343;
+	color:black;
+  border: 1px solid black;
+  width:70px;
+	height:70px;
+  font-size: 30px;
+  display: flex;
+	border-radius:50px;
+  text-decoration: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.floatlink:hover{
+  transform: scale(1.2);
+}
+
+.floatlink:active{
+  transform: scale(1);
+}

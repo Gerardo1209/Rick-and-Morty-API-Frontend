@@ -1,6 +1,6 @@
 <!-- If the character is fetched, show the data, on other case show loading-->
 <div class="container">
-  <h1 class="h1 text-center text-light my-3">Search for "{{query}}"</h1>
+  <h1 class="h1 text-center text-light my-3">Search results for "{{query}}"</h1>
   @if (!error) {
     <!--Show nav options for pagination-->
     <nav aria-label="Page navigation">
@@ -69,6 +69,11 @@
         </li>
       </ul>
     </nav>
+    <span class="float">
+      <button class="floatlink animate__animated animate__fadeIn" pTooltip="Filter">
+        <i class="fa-solid fa-filter"></i>
+      </button>
+    </span>
   }@else{
     <!--If an error ocurrs show no results-->
     <div class="d-flex justify-content-center align-content-center mt-5">

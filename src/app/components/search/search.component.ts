@@ -4,6 +4,7 @@ import { Subscription } from 'rxjs';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { NgClass } from '@angular/common';
 import { CardComponent } from '../card/card.component';
+import { TooltipModule } from 'primeng/tooltip';
 
 @Component({
   selector: 'app-search',
@@ -11,7 +12,8 @@ import { CardComponent } from '../card/card.component';
   imports: [
     NgClass,
     RouterModule,
-    CardComponent
+    CardComponent,
+    TooltipModule
   ],
   templateUrl: './search.component.html',
   styleUrl: './search.component.css'

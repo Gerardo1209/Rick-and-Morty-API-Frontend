@@ -4,7 +4,7 @@ import { RouterOutlet } from '@angular/router';
 import { RouterModule } from '@angular/router';
 import { NavbarComponent } from './navigation/navbar/navbar.component';
 import { FooterComponent } from './navigation/footer/footer.component';
-import { Accessibility } from 'accessibility';
+import { Accessibility } from 'accessibility/dist/main';
 
 @Component({
   selector: 'app-root',
@@ -23,6 +23,6 @@ import { Accessibility } from 'accessibility';
 export class AppComponent implements OnInit{
   title = 'Rick and Morty Wiki';
   ngOnInit(): void {
-    //var accesibility:Accessibility = new Accessibility()
+
   }
 }

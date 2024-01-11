@@ -14,6 +14,7 @@ The card component uses an input to get the character information to show
 ### Navbar note
 If the character link is clicked directly, the character page will fetch a random character.
 
+# Angular configurations
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.9.
 

@@ -1,13 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { RickandmortyService, character, characters, location, episode } from '../../services/rickandmorty.service';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { NgClass } from '@angular/common';
 import { CommonModule } from '@angular/common';
+import { TooltipModule } from 'primeng/tooltip';
 
 @Component({
   selector: 'app-detail',
   standalone: true,
-  imports: [NgClass, CommonModule],
+  imports: [NgClass,
+    CommonModule,
+    TooltipModule,
+    RouterModule
+  ],
   providers: [RickandmortyService],
   templateUrl: './detail.component.html',
   styleUrl: './detail.component.css'
@@ -15,6 +20,7 @@ import { CommonModule } from '@angular/common';
 export class DetailComponent implements OnInit{
   id:number|undefined //Character id
   character: character|undefined //Character for display
+  characterInfo: character|undefined //Character information for display
   locationInfo: location|undefined //Location of character
   episodesInfo: episode[]|undefined //Episodes appeared
   information:boolean = true // Page view information
@@ -24,31 +30,99 @@ export class DetailComponent implements OnInit{
 
   constructor(private rickandmortyService: RickandmortyService,
     private route:ActivatedRoute, private router:Router){
-
+    if(this.route.snapshot.params["id"]){
+      this.id = this.route.snapshot.params["id"]
+    }
   }
 
   async ngOnInit(): Promise<void> {
-    if(this.route.snapshot.params["id"]){
-      this.id = this.route.snapshot.params["id"]
-    }else{
-      await this.getRandom()
+    if(!this.id){
+      this.id = await this.getRandom()
+      this.router.navigateByUrl('character/'+this.id)
     }
-    await this.getCharacter();
+    await this.getCharacter()
+    this.getInformation()
   }
 
   async getCharacter(){
     await this.rickandmortyService.getCharacter(this.id!).forEach((char) => {
       this.character = <character>char
     })
+  }
+
+  async getLocation(){
+    this.locationInfo = undefined
+    this.information = false
+    this.episodes = false
+    this.location = true
     await this.rickandmortyService.getLocation(this.character?.location.url!).forEach((loc) => {
       this.locationInfo = <location> loc
     })
   }
 
-  async getRandom(){
+  async getInformation(){
+    this.characterInfo = undefined
+    this.episodes = false
+    this.location = false
+    this.information = true
+    await this.rickandmortyService.getCharacter(this.id!).forEach((char) => {
+      this.characterInfo = <character>char
+    })
+  }
+
+  async getEpisodes(){
+    /**
+     * Restart the data for a new fetch
+     */
+    this.episodesInfo = undefined
+    this.location = false
+    this.information = false
+    this.episodes = true
+    if(this.character){
+      /**
+       * Checks the character has episodes
+       */
+      var episodes:string[] = this.character.episode
+      var idEpisodes: number[] = [];
+      /**
+       * Makes an array of numbers for all the episodes to make only one fetch
+       */
+      for (let i = 0; i < episodes.length; i++) {
+        const element = episodes[i];
+        idEpisodes.push(parseInt(element.split('/').slice(-1)[0]))
+      }
+      /**
+       * Makes the fetch
+       * If the character only has one episode,
+       * makes that to an actual array
+       */
+      await this.rickandmortyService.getEpisodes(idEpisodes).forEach((ep) => {
+        this.episodesInfo = <episode[]> ep
+        if(!Array.isArray(this.episodesInfo)){
+          this.episodesInfo = []
+          this.episodesInfo.push(<episode>ep)
+        }
+      })
+      console.log(this.episodesInfo)
+    }
+
+  }
+
+  async getRandom():Promise<number>{
+    var random:number = 0;
     await this.rickandmortyService.getCharacters().forEach((page) => {
       var infoPage:characters = <characters>page
-      this.id = Math.floor(Math.random()*infoPage.info.count)
+      random = Math.floor(Math.random()*infoPage.info.count)
     })
+    return random;
+  }
+
+  newRandom(){
+    this.character = undefined
+    this.characterInfo = undefined
+    this.locationInfo = undefined
+    this.episodesInfo = undefined
+    this.id = undefined
+    this.ngOnInit()
   }
 }

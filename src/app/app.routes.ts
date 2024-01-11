@@ -7,8 +7,8 @@ export const routes: Routes = [
   {path: 'home', component: HomeComponent},
   {path: 'wiki', component: WikiComponent},
   {path: 'wiki/:page', component: WikiComponent},
-  {path: 'detail', component: DetailComponent},
-  {path: 'detail/:id', component: DetailComponent},
+  {path: 'character', component: DetailComponent},
+  {path: 'character/:id', component: DetailComponent},
   { path:'', pathMatch:'full', redirectTo:'home' },
   { path:'**', pathMatch:'full', redirectTo:'home' }
 ];

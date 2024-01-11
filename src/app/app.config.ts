@@ -4,7 +4,8 @@ import { provideRouter } from '@angular/router';
 import { routes } from './app.routes';
 import { provideServiceWorker } from '@angular/service-worker';
 import { InMemoryScrollingFeature, InMemoryScrollingOptions, withInMemoryScrolling } from '@angular/router';
-import { HttpClientModule, provideHttpClient } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
+import { Accessibility } from 'accessibility/dist/main';
 
 const scrollConfig: InMemoryScrollingOptions = {
   scrollPositionRestoration: 'top',

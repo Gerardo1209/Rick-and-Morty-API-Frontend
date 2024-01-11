@@ -1,7 +1,7 @@
 <div class="container">
   <div class="card mt-5 mb-5">
     <div class="row g-0">
-      <div class="col-12 col-md-6 col-lg-7">
+      <div class="col-12 col-md-5 col-lg-6">
         @if (character) {
         <img
           [src]="character.image"
@@ -19,14 +19,14 @@
         </div>
         }
       </div>
-      <div class="col-12 col-md-6 col-lg-5">
+      <div class="col-12 col-md-7 col-lg-6">
         <div class="card-body">
           <h1
             class="card-title text-center"
             [ngClass]="{ 'placeholder-glow': !character }"
           >
             @if (character) {
-            {{ character.name }}
+              {{ character.name }}
             }@else {
             <span class="placeholder col-8"></span>
             }
@@ -37,8 +37,8 @@
             <li class="nav-item">
               <button
                 class="nav-link"
-                (click)="location = false; episodes = false; information = true"
-                [ngClass]="{ active: information }"
+                (click)="getInformation()"
+                [ngClass]="{ 'active': information }"
               >
                 Information
               </button>
@@ -46,8 +46,8 @@
             <li class="nav-item">
               <button
                 class="nav-link"
-                (click)="information = false; episodes = false; location = true"
-                [ngClass]="{ active: location }"
+                (click)="getLocation()"
+                [ngClass]="{ 'active': location }"
               >
                 Location
               </button>
@@ -55,8 +55,8 @@
             <li class="nav-item">
               <button
                 class="nav-link"
-                (click)="information = false; location = false; episodes = true"
-                [ngClass]="{ active: episodes }"
+                (click)="getEpisodes()"
+                [ngClass]="{ 'active': episodes }"
               >
                 Episodes
               </button>
@@ -67,70 +67,60 @@
             <ul class="list-group list-group-flush">
               <li class="list-group-item" [ngClass]="{ 'placeholder-glow': !character }">
                 ID:
-                @if (character) {
-                  {{character.id}}
+                @if (characterInfo) {
+                  {{characterInfo.id}}
                 }@else {
                   <span class="placeholder col-8"></span>
                 }
               </li>
-              <li class="list-group-item" [ngClass]="{ 'placeholder-glow': !character }">
+              <li class="list-group-item" [ngClass]="{ 'placeholder-glow': !characterInfo }">
                 Status:
-                @if (character) {
-                  @switch (character.status) {
-                    @case ("Alive") {
-                      <i style="color: yellowgreen" class="fa-solid fa-circle"></i>
-                    }
-                    @case ("Dead") {
-                      <i style="color: red" class="fa-solid fa-circle"></i>
-                    }
-                    @case("unknown"){
-                      <i style="color: gray"class="fa-solid fa-circle"></i>
-                    }
-                  }
-                  {{ character.status }}
+                @if (characterInfo) {
+
+                  {{ characterInfo.status }}
                 }@else {
                   <span class="placeholder col-8"></span>
                 }
 
               </li>
-              <li class="list-group-item" [ngClass]="{ 'placeholder-glow': !character }">
+              <li class="list-group-item" [ngClass]="{ 'placeholder-glow': !characterInfo }">
                 Species:
-                @if (character) {
-                  {{ character.species }}
+                @if (characterInfo) {
+                  {{ characterInfo.species }}
                 }@else {
                   <span class="placeholder col-8"></span>
                 }
               </li>
-              <li class="list-group-item" [ngClass]="{ 'placeholder-glow': !character }">
+              <li class="list-group-item" [ngClass]="{ 'placeholder-glow': !characterInfo }">
                 Subspecies:
-                @if (character) {
-                  {{ character.type }}
+                @if (characterInfo) {
+                  {{ characterInfo.type }}
                 }@else {
                   <span class="placeholder col-8"></span>
                 }
               </li>
-              <li class="list-group-item" [ngClass]="{ 'placeholder-glow': !character }">
+              <li class="list-group-item" [ngClass]="{ 'placeholder-glow': !characterInfo }">
                 Gender:
-                @if (character) {
-                   {{ character.gender }}
+                @if (characterInfo) {
+                   {{ characterInfo.gender }}
                 }@else {
                   <span class="placeholder col-8"></span>
                 }
               </li>
-              <li class="list-group-item" [ngClass]="{ 'placeholder-glow': !character }">
+              <li class="list-group-item" [ngClass]="{ 'placeholder-glow': !characterInfo }">
                 API URL:
-                @if (character) {
-                  <a target="_blank" [href]="character.url">{{
-                    character.name
+                @if (characterInfo) {
+                  <a target="_blank" [href]="characterInfo.url">{{
+                    characterInfo.name
                   }}</a>
                 }@else {
                   <span class="placeholder col-8"></span>
                 }
               </li>
-              <li class="list-group-item" [ngClass]="{ 'placeholder-glow': !character }">
+              <li class="list-group-item" [ngClass]="{ 'placeholder-glow': !characterInfo }">
                 Database created:
-                @if (character) {
-                  {{ character.created | date }}
+                @if (characterInfo) {
+                  {{ characterInfo.created | date }}
                 }@else {
                   <span class="placeholder col-8"></span>
                 }
@@ -192,7 +182,72 @@
               </ul>
             }
             @if (episodes) {
+              <ul class="list-group list-group-flush">
+                <div class="table-responsive" id="tab-container">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Code</th>
+                        <th>Air date</th>
+                        <th>API URL</th>
+                        <th>Database created</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      @if (episodesInfo) {
+                        @for (episode of episodesInfo; track $index) {
+                          <tr>
+                            <td>
+                              {{episode.id}}
+                            </td>
+                            <td>
+                              {{episode.name}}
+                            </td>
+                            <td>
+                              {{episode.episode}}
+                            </td>
+                            <td>
+                              {{episode.air_date}}
+                            </td>
+                            <td>
+                              <a target="_blank" [href]="episode.url">{{
+                                episode.name
+                              }}</a>
+                            </td>
+                            <td>
+                              {{episode.created | date}}
+                            </td>
+                          </tr>
+                        }
+                      }@else {
+                        <tr>
+                          <td class='placeholder-glow'>
+                            <span class="placeholder col-8"></span>
+                          </td>
+                          <td class='placeholder-glow'>
+                            <span class="placeholder col-8"></span>
+                          </td>
+                          <td class='placeholder-glow'>
+                            <span class="placeholder col-8"></span>
+                          </td>
+                          <td class='placeholder-glow'>
+                            <span class="placeholder col-8"></span>
+                          </td>
+                          <td class='placeholder-glow'>
+                            <span class="placeholder col-8"></span>
+                          </td>
+                          <td class='placeholder-glow'>
+                            <span class="placeholder col-8"></span>
+                          </td>
+                        </tr>
 
+                      }
+                    </tbody>
+                  </table>
+                </div>
+              </ul>
             }
           </div>
         </div>
@@ -200,3 +255,8 @@
     </div>
   </div>
 </div>
+<span class="float">
+  <button (click)="newRandom()" class="floatlink" pTooltip="Random">
+      <i class="fa-solid fa-shuffle"></i>
+  </button>
+</span>

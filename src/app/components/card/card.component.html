@@ -1,4 +1,4 @@
-<div class="card" [routerLink]="character ? '/detail/'+character.id : '#'">
+<div class="card" [routerLink]="character ? '/character/'+character.id : '#'">
   @if (character) {
     <img [src]="character.image" class="card-img-top" [alt]="character.name">
   }@else {

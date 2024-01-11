@@ -1,0 +1,23 @@
+img{
+  width: 80hv;
+}
+
+h1,p{
+  font-weight: bolder;
+  color: white;
+}
+
+.btn{
+  background-color: #c4e343;
+  border: none;
+  transition: .4s;
+}
+
+.btn:hover{
+  transform: scale(1.2);
+  background-color: #95ad33;
+}
+
+.btn:active{
+  transform: scale(1);
+}

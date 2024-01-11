@@ -103,7 +103,6 @@ export class DetailComponent implements OnInit{
           this.episodesInfo.push(<episode>ep)
         }
       })
-      console.log(this.episodesInfo)
     }
 
   }

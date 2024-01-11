@@ -1,28 +1,28 @@
 <!-- If the character is fetched, show the data, on other case show loading-->
 <div class="container">
-  <h1 class="h1 text-center text-light my-3">Characters</h1>
+  <h1 class="h1 text-center text-light my-3">Search for "{{query}}"</h1>
   @if (!error) {
     <!--Show nav options for pagination-->
     <nav aria-label="Page navigation">
       <ul class="pagination justify-content-center">
         <li class="page-item" [ngClass]="{'disabled': numberPage == 1}">
-          <a class="page-link" [routerLink]="'/wiki/'+(numberPage-1)"><i class="fa-solid fa-angle-left"></i></a>
+          <a class="page-link" (click)="previousPage()" ><i class="fa-solid fa-angle-left"></i></a>
         </li>
         @if (pagesArray!=undefined) {
           @if (numberPage > 2 && currentPage?.info?.pages! > 5) {
-            <li class="page-item"><a class="page-link" routerLink="/wiki/1">{{1}}</a></li>
+            <li class="page-item"><a class="page-link" (click)="specificPage(1)">1</a></li>
             <li class="page-item"><a class="page-link disabled" style="cursor:default;">&#8230;</a></li>
           }
           @for (page of pagesArray; track $index) {
-            <li class="page-item"><a class="page-link" [ngClass]="{'active': numberPage == page}" [routerLink]="'/wiki/'+page" >{{page}}</a></li>
+            <li class="page-item"><a class="page-link" [ngClass]="{'active': numberPage == page}" (click)="specificPage(page)">{{page}}</a></li>
           }
-          @if (numberPage < currentPage?.info?.pages! - 1 && currentPage?.info?.pages! > 5)  {
+          @if (numberPage < currentPage?.info?.pages! - 1 && currentPage?.info?.pages! > 5) {
             <li class="page-item"><a class="page-link disabled" style="cursor:default;">&#8230;</a></li>
-            <li class="page-item"><a class="page-link" [routerLink]="'/wiki/'+currentPage?.info?.pages">{{currentPage?.info?.pages}}</a></li>
+            <li class="page-item"><a class="page-link" (click)="specificPage(currentPage?.info?.pages!)">{{currentPage?.info?.pages}}</a></li>
           }
         }
         <li class="page-item">
-          <a class="page-link" [ngClass]="{'disabled': numberPage==currentPage?.info?.pages}" [routerLink]="'/wiki/'+(numberPage+1)"><i class="fa-solid fa-angle-right"></i></a>
+          <a class="page-link" [ngClass]="{'disabled': numberPage==currentPage?.info?.pages}" (click)="nextPage()"><i class="fa-solid fa-angle-right"></i></a>
         </li>
       </ul>
     </nav>
@@ -49,30 +49,30 @@
     <nav aria-label="Page navigation">
       <ul class="pagination justify-content-center">
         <li class="page-item" [ngClass]="{'disabled': numberPage == 1}">
-          <a class="page-link" [routerLink]="'/wiki/'+(numberPage-1)"><i class="fa-solid fa-angle-left"></i></a>
+          <a class="page-link" (click)="previousPage()" ><i class="fa-solid fa-angle-left"></i></a>
         </li>
         @if (pagesArray!=undefined) {
           @if (numberPage > 2 && currentPage?.info?.pages! > 5) {
-            <li class="page-item"><a class="page-link" routerLink="/wiki/1">{{1}}</a></li>
+            <li class="page-item"><a class="page-link" (click)="specificPage(1)">1</a></li>
             <li class="page-item"><a class="page-link disabled" style="cursor:default;">&#8230;</a></li>
           }
           @for (page of pagesArray; track $index) {
-            <li class="page-item"><a class="page-link" [ngClass]="{'active': numberPage == page}" [routerLink]="'/wiki/'+page" >{{page}}</a></li>
+            <li class="page-item"><a class="page-link" [ngClass]="{'active': numberPage == page}" (click)="specificPage(page)">{{page}}</a></li>
           }
-          @if (numberPage < currentPage?.info?.pages! - 1 && currentPage?.info?.pages! > 5)  {
+          @if (numberPage < currentPage?.info?.pages! - 1 && currentPage?.info?.pages! > 5) {
             <li class="page-item"><a class="page-link disabled" style="cursor:default;">&#8230;</a></li>
-            <li class="page-item"><a class="page-link" [routerLink]="'/wiki/'+currentPage?.info?.pages">{{currentPage?.info?.pages}}</a></li>
+            <li class="page-item"><a class="page-link" (click)="specificPage(currentPage?.info?.pages!)">{{currentPage?.info?.pages}}</a></li>
           }
         }
         <li class="page-item">
-          <a class="page-link" [ngClass]="{'disabled': numberPage==currentPage?.info?.pages}" [routerLink]="'/wiki/'+(numberPage+1)"><i class="fa-solid fa-angle-right"></i></a>
+          <a class="page-link" [ngClass]="{'disabled': numberPage==currentPage?.info?.pages}" (click)="nextPage()"><i class="fa-solid fa-angle-right"></i></a>
         </li>
       </ul>
     </nav>
-  }@else {
+  }@else{
+    <!--If an error ocurrs show no results-->
     <div class="d-flex justify-content-center align-content-center mt-5">
       <h2 id="noResults">No results</h2>
     </div>
   }
 </div>
-

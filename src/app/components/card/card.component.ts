@@ -12,5 +12,5 @@ import { RouterModule } from '@angular/router';
   styleUrl: './card.component.css'
 })
 export class CardComponent {
-  @Input({required:false}) character!:character;
+  @Input({required:false}) character!:character; //Data of the character
 }

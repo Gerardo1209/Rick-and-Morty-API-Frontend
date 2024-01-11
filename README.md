@@ -1,4 +1,19 @@
-# Entrevista
+# Rick and morty API fornt end
+
+## Principal characteristics
+### Home page
+In this section you will see a presentation for the web page and two buttons, one for the wiki page and other for fetch a random character
+### Wiki page
+The wiki page contains and shows all the characters in the API paginated by 20. If the user clicks on a card it will redirect to the character web page.
+### Character page
+Here the user can see all the details of the character, like his information, las known location and all the episodes where appear. Also, in this page is a random button thats fetch a new character.
+### Search page
+In the navbar is a search option where the user can filter by the name of the character, if no input is given the input will show an exclamation.
+### Card component
+The card component uses an input to get the character information to show
+### Navbar note
+If the character link is clicked directly, the character page will fetch a random character.
+
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.9.
 

@@ -1,35 +1,37 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { CardComponent } from '../card/card.component';
-import { RickandmortyService, character, characters } from '../../services/rickandmorty.service';
-import { NgClass } from '@angular/common';
-import { ActivatedRoute, RouterModule, Router } from '@angular/router';
+import { Component, OnDestroy } from '@angular/core';
+import { RickandmortyService, characters } from '../../services/rickandmorty.service';
 import { Subscription } from 'rxjs';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
+import { NgClass } from '@angular/common';
+import { CardComponent } from '../card/card.component';
 
 @Component({
-  selector: 'app-wiki',
+  selector: 'app-search',
   standalone: true,
-  imports: [CardComponent, NgClass, RouterModule],
-  providers: [RickandmortyService],
-  templateUrl: './wiki.component.html',
-  styleUrl: './wiki.component.css'
+  imports: [
+    NgClass,
+    RouterModule,
+    CardComponent
+  ],
+  templateUrl: './search.component.html',
+  styleUrl: './search.component.css'
 })
-
-export class WikiComponent implements OnDestroy{
-  currentPage:characters | undefined // Data from the current page
-  numberPage: number = 1 // Current page number
+export class SearchComponent implements OnDestroy{
+  currentPage:characters | undefined // Data from the current page of search
+  numberPage:number = 1
+  query: string = '' // Current page number
   pagesArray:number[]|undefined // Pages to show in options
-  paramsSubscription:Subscription|undefined // Saves the subscription
+  queryParamsSubscription:Subscription|undefined // Saves the subscription for the params
   loading: boolean = false //Indicates if the data is beign fetched form the API
   loadingArray = [1,2,3,4,5] //Number of loading cards
   error: boolean = false //If an error appears in fetching, activate
 
   constructor(private rickandmortyService: RickandmortyService, private route:ActivatedRoute, private router:Router){
-    /**
-     * Subscribe to the params for listen to changes in the page number
-     */
-    this.paramsSubscription = this.route.params.subscribe(params => {
-      this.numberPage = (params["page"]!=undefined ? parseInt(params["page"]!) : 1)
-      this.getContent(this.numberPage)
+    this.queryParamsSubscription = this.route.queryParams.subscribe(params => {
+      this.error = false
+      this.query = params['q']
+      this.numberPage = parseInt(params['p'])
+      this.getContent(this.query)
     })
   }
 
@@ -37,17 +39,18 @@ export class WikiComponent implements OnDestroy{
     /**
      * Unsubscribe form the params changes
      */
-    if(this.paramsSubscription!=undefined) this.paramsSubscription.unsubscribe()
+    if(this.queryParamsSubscription!=undefined) this.queryParamsSubscription.unsubscribe()
   }
 
-  async getContent(page:number){
+  async getContent(query:string){
     /**
      * Gets the data for the page
      */
     this.loading = true //State of loading changed
     try{
-      await this.rickandmortyService.getPage(page).forEach(pageData => {
+      await this.rickandmortyService.filterCahracterByName(query, this.numberPage).forEach(pageData => {
         this.currentPage = <characters>pageData
+        console.log(this.currentPage)
         /*Creates an array for the number of pages
           makes a five pages paginator
           if the number of page is less than five,
@@ -75,7 +78,6 @@ export class WikiComponent implements OnDestroy{
     }catch(error){
       this.error = true
     }
-
     this.loading = false; // Finish the fetch
   }
 
@@ -84,9 +86,47 @@ export class WikiComponent implements OnDestroy{
      * Creates an array containing the numbers from the start to stop
      */
     return Array.from(
-      {length: (stop-start)+1},
+      {length: (stop <= 0 ? 1 : (stop-start)+1)},
       (_, index) => start + index
     )
   }
 
+  nextPage(){
+    this.router.navigate(
+      ['/search'],
+      {
+        queryParams: {
+          'q':this.query,
+          'p':this.numberPage+1
+        },
+        queryParamsHandling: 'merge'
+      }
+    )
+  }
+
+  previousPage(){
+    this.router.navigate(
+      ['/search'],
+      {
+        queryParams: {
+          'q':this.query,
+          'p':this.numberPage-1
+        },
+        queryParamsHandling: 'merge'
+      }
+    )
+  }
+
+  specificPage(page:number){
+    this.router.navigate(
+      ['/search'],
+      {
+        queryParams: {
+          'q':this.query,
+          'p':page
+        },
+        queryParamsHandling: 'merge'
+      }
+    )
+  }
 }

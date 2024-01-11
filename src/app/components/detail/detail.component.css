@@ -8,7 +8,11 @@
 
 #tab-container{
   overflow-y: auto;
-  height: 430px;
+  height: 100%;
+}
+
+.list-group{
+  height: 320px;
 }
 
 .float{

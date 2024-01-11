@@ -30,12 +30,19 @@ export class DetailComponent implements OnInit{
 
   constructor(private rickandmortyService: RickandmortyService,
     private route:ActivatedRoute, private router:Router){
+      /**
+       * Gets the id of the character to show
+       */
     if(this.route.snapshot.params["id"]){
       this.id = this.route.snapshot.params["id"]
     }
   }
 
   async ngOnInit(): Promise<void> {
+    /**
+     * If the id is undefined, fetchs a random character,
+     * else get the character info
+     */
     if(!this.id){
       this.id = await this.getRandom()
       this.router.navigateByUrl('character/'+this.id)
@@ -45,12 +52,19 @@ export class DetailComponent implements OnInit{
   }
 
   async getCharacter(){
+    /**
+     * Fetchs the character info
+     */
     await this.rickandmortyService.getCharacter(this.id!).forEach((char) => {
       this.character = <character>char
     })
   }
 
   async getLocation(){
+    /**
+     * Fetch the location when the user selects that option
+     * and disables the show of the others
+     */
     this.locationInfo = undefined
     this.information = false
     this.episodes = false
@@ -61,6 +75,9 @@ export class DetailComponent implements OnInit{
   }
 
   async getInformation(){
+    /**
+     * Fetch the information tab and disables the other options show
+     */
     this.characterInfo = undefined
     this.episodes = false
     this.location = false
@@ -103,12 +120,15 @@ export class DetailComponent implements OnInit{
           this.episodesInfo.push(<episode>ep)
         }
       })
-      console.log(this.episodesInfo)
     }
 
   }
 
   async getRandom():Promise<number>{
+    /**
+     * Returns a random number based on random
+     * and the number of characters available
+     */
     var random:number = 0;
     await this.rickandmortyService.getCharacters().forEach((page) => {
       var infoPage:characters = <characters>page
@@ -118,6 +138,10 @@ export class DetailComponent implements OnInit{
   }
 
   newRandom(){
+    /**
+     * Fetch a new character
+     * Makes everything undefined to show the load
+     */
     this.character = undefined
     this.characterInfo = undefined
     this.locationInfo = undefined

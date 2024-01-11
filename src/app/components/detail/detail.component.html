@@ -1,6 +1,8 @@
+<!-- If the character is fetched, show the data, on other case show loading-->
 <div class="container">
-  <div class="card mt-5 mb-5">
+  <div class="card animate__animated animate__fadeIn mt-5 mb-5">
     <div class="row g-0">
+      <!--Show the image of the character-->
       <div class="col-12 col-md-5 col-lg-6">
         @if (character) {
         <img
@@ -20,6 +22,7 @@
         }
       </div>
       <div class="col-12 col-md-7 col-lg-6">
+         <!--Show the name of the character-->
         <div class="card-body">
           <h1
             class="card-title text-center"
@@ -33,6 +36,7 @@
           </h1>
         </div>
         <div>
+          <!--Show the menu of options per character-->
           <ul class="nav justify-content-center nav-tabs">
             <li class="nav-item">
               <button
@@ -62,7 +66,9 @@
               </button>
             </li>
           </ul>
+          <!--Show the selected information-->
           <div class="card-body">
+            <!--Show information when selected-->
             @if (information) {
             <ul class="list-group list-group-flush">
               <li class="list-group-item" [ngClass]="{ 'placeholder-glow': !character }">
@@ -127,6 +133,7 @@
               </li>
             </ul>
             }
+            <!--Show location when selected-->
             @if (location) {
               <ul class="list-group list-group-flush">
                 <li class="list-group-item" [ngClass]="{ 'placeholder-glow': !locationInfo }">
@@ -181,6 +188,7 @@
                 </li>
               </ul>
             }
+            <!--Show episodes when selected-->
             @if (episodes) {
               <ul class="list-group list-group-flush">
                 <div class="table-responsive" id="tab-container">
@@ -255,8 +263,9 @@
     </div>
   </div>
 </div>
+<!--Button for new random character-->
 <span class="float">
-  <button (click)="newRandom()" class="floatlink" pTooltip="Random">
+  <button (click)="newRandom()" class="floatlink animate__animated animate__fadeIn" pTooltip="Random">
       <i class="fa-solid fa-shuffle"></i>
   </button>
 </span>

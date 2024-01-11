@@ -9,6 +9,8 @@
   height: 100%;
   min-height: 18rem;
   cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.7);
+  transition: .4s;
 }
 
 .spinner-border{
@@ -20,4 +22,5 @@
 
 .card:hover{
   transform:scaleX(1) scaleY(1.05) scaleZ(1.15) rotateX(13deg) rotateY(-5deg) rotateZ(3deg) translateX(0px) translateY(0px) translateZ(0px) skewX(0deg) skewY(0deg);
+  background-color: rgba(255, 255, 255, 1);
 }

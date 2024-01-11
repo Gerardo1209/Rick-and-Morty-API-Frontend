@@ -1,6 +1,6 @@
 {
-  "name": "Entrevista",
-  "short_name": "Entrevista",
+  "name": "Rick and Morty Wiki",
+  "short_name": "RnM Wiki",
   "theme_color": "#1976d2",
   "background_color": "#fafafa",
   "display": "standalone",

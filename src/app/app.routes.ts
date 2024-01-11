@@ -9,6 +9,7 @@ export const routes: Routes = [
   {path: 'wiki/:page', component: WikiComponent},
   {path: 'character', component: DetailComponent},
   {path: 'character/:id', component: DetailComponent},
+  {path: 'search'},
   { path:'', pathMatch:'full', redirectTo:'home' },
   { path:'**', pathMatch:'full', redirectTo:'home' }
 ];

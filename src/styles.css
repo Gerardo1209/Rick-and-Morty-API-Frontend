@@ -21,20 +21,6 @@ a{
   cursor: pointer;
 }
 
-.card{
-  background-color: rgba(255, 255, 255, 0.7);
-  transition: .4s;
-}
-
-.card:hover{
-  background-color: rgba(255, 255, 255, 1);
-}
-
-.list-group-item{
-  background-color: rgba(255, 255, 255, 0);
-  transition: .4s;
-}
-
 table tr td, table tr th{
   background-color: rgba(255, 255, 255, 0) !important;
   color:green;

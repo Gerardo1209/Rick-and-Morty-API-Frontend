@@ -1,5 +1,8 @@
 # Rick and morty API fornt end
 
+## Github pages
+You can see a deploy of the project in: https://gerardo1209.github.io/Rick-and-Morty-API-Frontend/
+
 ## Principal characteristics
 ### Home page
 In this section you will see a presentation for the web page and two buttons, one for the wiki page and other for fetch a random character

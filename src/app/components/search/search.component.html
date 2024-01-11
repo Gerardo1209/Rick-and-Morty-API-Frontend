@@ -69,15 +69,58 @@
         </li>
       </ul>
     </nav>
-    <span class="float">
-      <button class="floatlink animate__animated animate__fadeIn" pTooltip="Filter">
-        <i class="fa-solid fa-filter"></i>
-      </button>
-    </span>
   }@else{
     <!--If an error ocurrs show no results-->
     <div class="d-flex justify-content-center align-content-center mt-5">
       <h2 id="noResults">No results</h2>
     </div>
+  }
+  @if (firstResult) {
+    <!--Filter options-->
+    <span class="float">
+      <div class="dropup">
+        <button class="floatlink dropdown-toggle animate__animated animate__fadeIn" type="button" data-bs-auto-close="outside" data-bs-toggle="dropdown" aria-expanded="false" pTooltip="Filter">
+          <i class="fa-solid fa-filter"></i>
+        </button>
+        <ul class="dropdown-menu">
+          <li>
+            <div class="dropdown-item border-top">
+              <strong>Status</strong>
+              @for (stat of status; track $index) {
+                <div class="field-checkbox">
+                  <p-radioButton
+                    class="label"
+                    [label]="stat.name"
+                    [inputId]="stat.name"
+                    name="status"
+                    [value]="stat"
+                    (onClick)="changeFilter()"
+                    [(ngModel)]="selectedStatus"
+                  ></p-radioButton>
+                </div>
+              }
+            </div>
+          </li>
+          <li>
+            <div class="dropdown-item border-top border-bottom">
+              <strong>Gender</strong>
+              @for (gen of gender; track $index) {
+                <div class="field-checkbox">
+                  <p-radioButton
+                    class="label"
+                    [inputId]="gen.key"
+                    [label]="gen.name"
+                    name="gender"
+                    [value]="gen"
+                    (onClick)="changeFilter()"
+                    [(ngModel)]="selectedGender"
+                  ></p-radioButton>
+                </div>
+              }
+            </div>
+          </li>
+        </ul>
+      </div>
+    </span>
   }
 </div>

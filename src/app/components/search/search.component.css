@@ -14,9 +14,9 @@ h2{
   background-color: #c4e343;
 	color:black;
   border: 1px solid black;
-  width:70px;
-	height:70px;
-  font-size: 30px;
+  width:65px;
+	height:65px;
+  font-size: 28px;
   display: flex;
 	border-radius:50px;
   text-decoration: none;
@@ -30,4 +30,31 @@ h2{
 
 .floatlink:active{
   transform: scale(1);
+}
+
+.border-top{
+  border-top: 1px solid gray;
+  width: 100%;
+}
+
+.border-bottom{
+  border-bottom: 1px solid gray;
+  width: 100%;
+}
+
+.dropdown-item{
+  color: black;
+}
+
+.dropdown-item:hover{
+  color: black;
+  background-color: white !important;
+}
+
+.dropdown-item:active{
+  color: black !important;
+}
+
+.label{
+  text-transform: capitalize;
 }

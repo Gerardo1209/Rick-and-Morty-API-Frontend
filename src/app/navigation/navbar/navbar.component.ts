@@ -39,7 +39,9 @@ export class NavbarComponent {
         {
           queryParams: {
             'q':this.searchGroup.get('search')?.value,
-            'p':1
+            'p':1,
+            's':'all',
+            'g':'all'
           },
           queryParamsHandling: 'merge'
         }

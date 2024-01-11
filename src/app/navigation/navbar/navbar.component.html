@@ -1,15 +1,18 @@
 <nav class="navbar navbar-expand-md colorRickandmortyBackgroud colorRickandmorty">
   <div class="container-fluid">
+    <!--Show rick and morty logo always on the left-->
     <a class="navbar-brand order-0" routerLink="/home">
       <img src="assets/images/Rick_and_Morty.svg" alt="Rick and Morty" height="40">
     </a>
+    <!--Show search bar, when the display is small show in center, when is large show in right-->
     <form [formGroup]="searchGroup" class="d-flex order-1 order-md-2 " (ngSubmit)="search()" role="search">
-      <input id="search" formControlName="search" class="form-control me-2" (blur)="deselectSearch()" [ngClass]="{'is-invalid': invalidSearch}" type="search" placeholder="Search" aria-label="Search">
+      <input id="search" formControlName="search" class="form-control me-2" (keypress)="deselectSearch()" (blur)="deselectSearch()" [ngClass]="{'is-invalid': invalidSearch}" type="search" placeholder="Search" aria-label="Search">
       <button class="btn btn-outline-dark" (blur)="deselectSearch()" pTooltip="Search" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
     </form>
     <button class="navbar-toggler order-2 order-md-1" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
+    <!--Show links option, when the display is small show in the left, when is large show in the center-->
     <div class="collapse navbar-collapse order-2 order-md-1" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0 mx-auto" id="menu">
         <li class="nav-item" routerLinkActive="active" routerLink="/home">

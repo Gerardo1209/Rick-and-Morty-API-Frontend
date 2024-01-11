@@ -9,5 +9,5 @@ import { RouterModule } from '@angular/router';
   styleUrl: './footer.component.css'
 })
 export class FooterComponent {
-  year:number = new Date().getFullYear()
+  year:number = new Date().getFullYear() //Gets current year
 }

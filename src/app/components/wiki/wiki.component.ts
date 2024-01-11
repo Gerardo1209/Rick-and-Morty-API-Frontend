@@ -24,6 +24,9 @@ export class WikiComponent implements OnDestroy{
   error: boolean = false //If an error appears in fetching, activate
 
   constructor(private rickandmortyService: RickandmortyService, private route:ActivatedRoute, private router:Router){
+    /**
+     * Subscribe to the params for listen to changes in the page number
+     */
     this.paramsSubscription = this.route.params.subscribe(params => {
       this.numberPage = (params["page"]!=undefined ? parseInt(params["page"]!) : 1)
       this.getContent(this.numberPage)
@@ -47,28 +50,30 @@ export class WikiComponent implements OnDestroy{
         this.currentPage = <characters>pageData
         /*Creates an array for the number of pages
           makes a five pages paginator
+          if the number of page is less than five,
+          creates the number of pages necesary
         */
         if(this.currentPage==undefined) return
-        switch (page) {
+        switch (this.numberPage) {
           case 1:
-            this.pagesArray = this.createArray(page, page + 4)
+            this.pagesArray = this.createArray(this.numberPage, this.numberPage + ((this.currentPage.info.pages > 5) ? 4 : this.currentPage.info.pages-1))
             break;
           case 2:
-            this.pagesArray = this.createArray(page-1, page+3)
+            this.pagesArray = this.createArray(this.numberPage-1, this.numberPage + ((this.currentPage.info.pages > 5) ? 3 : this.currentPage.info.pages - this.numberPage))
             break;
           case (this.currentPage.info.pages-1):
-              this.pagesArray = this.createArray(page-3, page+1)
+              this.pagesArray = this.createArray(this.numberPage-((this.currentPage.info.pages > 5) ? 3 : this.currentPage.info.pages-this.numberPage+1), this.numberPage+1)
               break;
           case this.currentPage.info.pages:
-            this.pagesArray = this.createArray(page-4, page)
+            this.pagesArray = this.createArray(this.numberPage-((this.currentPage.info.pages > 5) ? 4 : this.currentPage.info.pages-(this.numberPage-3)), this.numberPage)
             break;
           default:
-            this.pagesArray = this.createArray(page-1, page+1)
+            this.pagesArray = this.createArray(this.numberPage-1, this.numberPage+1)
             break;
         }
       })
     }catch(error){
-      this.router.navigateByUrl("/wiki/1")
+      this.error = true
     }
 
     this.loading = false; // Finish the fetch

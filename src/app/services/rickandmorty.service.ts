@@ -54,11 +54,18 @@ export class RickandmortyService {
     return this.httpClient.get(this.baseurl+"/episode/"+format)
   }
 
-  filterCahracterByName(query:string):Observable<Object>{
-    return this.httpClient.get(this.baseurl+"/character/?name="+query);
+  filterCahracterByName(query:string, page:number):Observable<Object>{
+    /**
+     * Filtes the characters by name and the number page of the search
+     */
+    return this.httpClient.get(this.baseurl+"/character/?page="+page+"&name="+query);
   }
 
 }
+
+/**
+ * Below are all the interfaces for manage the API data
+ */
 
 export interface characters{
   info: {

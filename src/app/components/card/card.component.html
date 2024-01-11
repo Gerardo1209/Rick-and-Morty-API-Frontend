@@ -1,3 +1,4 @@
+<!-- If the character is fetched, show the data, on other case show loading-->
 <div class="card animate__animated animate__fadeIn" [routerLink]="character ? '/character/'+character.id : '#'">
   @if (character) {
     <img [src]="character.image" class="card-img-top" [alt]="character.name">
@@ -10,7 +11,6 @@
   }
   <div class="card-body">
     <h5 class="card-title text-center" [ngClass]="{'placeholder-glow': !character}">
-
       @if (character) {
         {{character.name}}
       }@else {

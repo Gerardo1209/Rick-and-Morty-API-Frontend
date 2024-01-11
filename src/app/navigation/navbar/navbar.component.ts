@@ -37,7 +37,10 @@ export class NavbarComponent {
       this.router.navigate(
         ['/search'],
         {
-          queryParams: {'q':this.searchGroup.get('search')?.value},
+          queryParams: {
+            'q':this.searchGroup.get('search')?.value,
+            'p':1
+          },
           queryParamsHandling: 'merge'
         }
       )

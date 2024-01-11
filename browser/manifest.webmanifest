@@ -1,0 +1,17 @@
+{
+  "name": "Rick and Morty wiki",
+  "short_name": "RnM wiki",
+  "theme_color": "#1976d2",
+  "background_color": "#fafafa",
+  "display": "standalone",
+  "scope": "./",
+  "start_url": "./",
+  "icons": [
+    {
+      "src": "assets/icons/portal.ico",
+      "sizes": "128x128",
+      "type": "image/ico",
+      "purpose": "maskable any"
+    }
+  ]
+}

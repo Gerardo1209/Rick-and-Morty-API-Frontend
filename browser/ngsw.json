@@ -1,0 +1,97 @@
+{
+  "configVersion": 1,
+  "timestamp": 1705012237548,
+  "index": "https://Gerardo1209.github.io/Rick-and-Morty-API-Frontend/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "https://Gerardo1209.github.io/Rick-and-Morty-API-Frontend/index.html",
+        "https://Gerardo1209.github.io/Rick-and-Morty-API-Frontend/main-WGCSMRLR.js",
+        "https://Gerardo1209.github.io/Rick-and-Morty-API-Frontend/manifest.webmanifest",
+        "https://Gerardo1209.github.io/Rick-and-Morty-API-Frontend/polyfills-RX4V3J3S.js",
+        "https://Gerardo1209.github.io/Rick-and-Morty-API-Frontend/scripts-DWL7UUE4.js",
+        "https://Gerardo1209.github.io/Rick-and-Morty-API-Frontend/styles-2BGDEE5H.css"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "https://Gerardo1209.github.io/Rick-and-Morty-API-Frontend/assets/icons/portal.ico",
+        "https://Gerardo1209.github.io/Rick-and-Morty-API-Frontend/assets/images/Rick_and_Morty.svg",
+        "https://Gerardo1209.github.io/Rick-and-Morty-API-Frontend/assets/images/portal.png",
+        "https://Gerardo1209.github.io/Rick-and-Morty-API-Frontend/assets/images/starry-night-sky.jpg",
+        "https://Gerardo1209.github.io/Rick-and-Morty-API-Frontend/media/Inter-italic.var-SWFAXF2C.woff2",
+        "https://Gerardo1209.github.io/Rick-and-Morty-API-Frontend/media/Inter-roman.var-WIJJYAE4.woff2",
+        "https://Gerardo1209.github.io/Rick-and-Morty-API-Frontend/media/color-3LUHUBGQ.png",
+        "https://Gerardo1209.github.io/Rick-and-Morty-API-Frontend/media/fa-brands-400-4RSXLDQT.woff2",
+        "https://Gerardo1209.github.io/Rick-and-Morty-API-Frontend/media/fa-brands-400-RP3MZ4AX.ttf",
+        "https://Gerardo1209.github.io/Rick-and-Morty-API-Frontend/media/fa-regular-400-6ODLNN6G.woff2",
+        "https://Gerardo1209.github.io/Rick-and-Morty-API-Frontend/media/fa-regular-400-VE33OVPX.ttf",
+        "https://Gerardo1209.github.io/Rick-and-Morty-API-Frontend/media/fa-solid-900-BALFL4QR.ttf",
+        "https://Gerardo1209.github.io/Rick-and-Morty-API-Frontend/media/fa-solid-900-ZZETRIYD.woff2",
+        "https://Gerardo1209.github.io/Rick-and-Morty-API-Frontend/media/fa-v4compatibility-5WGRUVBC.woff2",
+        "https://Gerardo1209.github.io/Rick-and-Morty-API-Frontend/media/fa-v4compatibility-7DCIFHD7.ttf",
+        "https://Gerardo1209.github.io/Rick-and-Morty-API-Frontend/media/hue-RMMBQOAC.png",
+        "https://Gerardo1209.github.io/Rick-and-Morty-API-Frontend/media/starry-night-sky-EZ7OTSG5.jpg"
+      ],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [],
+  "hashTable": {
+    "https://Gerardo1209.github.io/Rick-and-Morty-API-Frontend/assets/icons/portal.ico": "ec1937dc511021d4c6036acde53141ffbcba4709",
+    "https://Gerardo1209.github.io/Rick-and-Morty-API-Frontend/assets/images/Rick_and_Morty.svg": "152be0fe53bef1b826d69936e640831fa8c363a6",
+    "https://Gerardo1209.github.io/Rick-and-Morty-API-Frontend/assets/images/portal.png": "02f740a9e76893313931961b7980f6e6ceed2b84",
+    "https://Gerardo1209.github.io/Rick-and-Morty-API-Frontend/assets/images/starry-night-sky.jpg": "800f4bda2a558f9f7857247d9ccf241e19e768a8",
+    "https://Gerardo1209.github.io/Rick-and-Morty-API-Frontend/index.html": "f2dc93ca23724215b912e3ac2a8b633789175802",
+    "https://Gerardo1209.github.io/Rick-and-Morty-API-Frontend/main-WGCSMRLR.js": "40cd420e038a6c189d0dfcf623e1f7deb407b1ae",
+    "https://Gerardo1209.github.io/Rick-and-Morty-API-Frontend/manifest.webmanifest": "e512ca5032bd1dc82fdf0999d7993319165099dd",
+    "https://Gerardo1209.github.io/Rick-and-Morty-API-Frontend/media/Inter-italic.var-SWFAXF2C.woff2": "6f20a046917bf86d4b6cc29c4e2515bd64d2cb9b",
+    "https://Gerardo1209.github.io/Rick-and-Morty-API-Frontend/media/Inter-roman.var-WIJJYAE4.woff2": "7a2602d2ebb08ce895e33addb6fe595f1029431e",
+    "https://Gerardo1209.github.io/Rick-and-Morty-API-Frontend/media/color-3LUHUBGQ.png": "ff4c4bcb2207891b292f544edb4da9d2df5d45cf",
+    "https://Gerardo1209.github.io/Rick-and-Morty-API-Frontend/media/fa-brands-400-4RSXLDQT.woff2": "4022f95e001d734ca8f082b8e7627abd205609ec",
+    "https://Gerardo1209.github.io/Rick-and-Morty-API-Frontend/media/fa-brands-400-RP3MZ4AX.ttf": "acaf5320927fc169b0089f8f25afb9cfbad353b4",
+    "https://Gerardo1209.github.io/Rick-and-Morty-API-Frontend/media/fa-regular-400-6ODLNN6G.woff2": "2ed706340547d19c10a409ee02fb08f3d52ff670",
+    "https://Gerardo1209.github.io/Rick-and-Morty-API-Frontend/media/fa-regular-400-VE33OVPX.ttf": "784b4d493ab9a7996b07e4f9f71674b2f2e43e22",
+    "https://Gerardo1209.github.io/Rick-and-Morty-API-Frontend/media/fa-solid-900-BALFL4QR.ttf": "54217d79e7b35011798d712a96d1c4ea08a0ca70",
+    "https://Gerardo1209.github.io/Rick-and-Morty-API-Frontend/media/fa-solid-900-ZZETRIYD.woff2": "1aae708e3b94ee981b452a918d28ed037fbb5e18",
+    "https://Gerardo1209.github.io/Rick-and-Morty-API-Frontend/media/fa-v4compatibility-5WGRUVBC.woff2": "7009126c938f8dad77426a5b44bc21685ee8dfec",
+    "https://Gerardo1209.github.io/Rick-and-Morty-API-Frontend/media/fa-v4compatibility-7DCIFHD7.ttf": "e47d5bf853d39ec86e62f4897cbcac7dd5c3b5b9",
+    "https://Gerardo1209.github.io/Rick-and-Morty-API-Frontend/media/hue-RMMBQOAC.png": "f81ae627637a684614aa726e206c73ce099a01fd",
+    "https://Gerardo1209.github.io/Rick-and-Morty-API-Frontend/media/starry-night-sky-EZ7OTSG5.jpg": "800f4bda2a558f9f7857247d9ccf241e19e768a8",
+    "https://Gerardo1209.github.io/Rick-and-Morty-API-Frontend/polyfills-RX4V3J3S.js": "6b4c4ea33aa92bce0b91df442a680ed73e4303db",
+    "https://Gerardo1209.github.io/Rick-and-Morty-API-Frontend/scripts-DWL7UUE4.js": "5d362608ddb61338d22bedfad69f3c678327eda1",
+    "https://Gerardo1209.github.io/Rick-and-Morty-API-Frontend/styles-2BGDEE5H.css": "769a85c0ebf6b41e28183c69d01f51621bb744d0"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*\\.[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
+    }
+  ],
+  "navigationRequestStrategy": "performance"
+}

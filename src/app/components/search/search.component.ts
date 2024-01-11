@@ -117,6 +117,7 @@ export class SearchComponent implements OnDestroy{
     /**
      * Creates an array containing the numbers from the start to stop
      */
+    if(start <= 0) start++
     return Array.from(
       {length: (stop <= 0 ? 1 : (stop-start)+1)},
       (_, index) => start + index

@@ -1,0 +1,23 @@
+<nav aria-label="Page navigation">
+  <ul class="pagination justify-content-center">
+    <li class="page-item" [ngClass]="{'disabled': numberPage == 1}">
+      <a class="page-link" (click)="previousPage()" ><i class="fa-solid fa-angle-left"></i></a>
+    </li>
+    @if (pagesArray!=undefined) {
+      @if (numberPage > 2 && pages > 5) {
+        <li class="page-item"><a class="page-link" (click)="specificPage(1)">1</a></li>
+        <li class="page-item"><a class="page-link disabled" style="cursor:default;">&#8230;</a></li>
+      }
+      @for (page of pagesArray; track $index) {
+        <li class="page-item"><a class="page-link" [ngClass]="{'active': numberPage == page}" (click)="specificPage(page)">{{page}}</a></li>
+      }
+      @if (numberPage < pages - 1 && pages > 5) {
+        <li class="page-item"><a class="page-link disabled" style="cursor:default;">&#8230;</a></li>
+        <li class="page-item"><a class="page-link" (click)="specificPage(pages)">{{pages}}</a></li>
+      }
+    }
+    <li class="page-item">
+      <a class="page-link" [ngClass]="{'disabled': numberPage==pages}" (click)="nextPage()"><i class="fa-solid fa-angle-right"></i></a>
+    </li>
+  </ul>
+</nav>

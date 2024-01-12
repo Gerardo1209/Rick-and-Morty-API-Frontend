@@ -1,10 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { RouterModule } from '@angular/router';
 import { NavbarComponent } from './navigation/navbar/navbar.component';
 import { FooterComponent } from './navigation/footer/footer.component';
-import { Accessibility } from 'accessibility/dist/main';
 
 @Component({
   selector: 'app-root',
@@ -20,9 +19,6 @@ import { Accessibility } from 'accessibility/dist/main';
   styleUrl: './app.component.css'
 })
 
-export class AppComponent implements OnInit{
+export class AppComponent{
   title = 'Rick and Morty Wiki';
-  ngOnInit(): void {
-
-  }
 }

@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1705012237548,
+  "timestamp": 1705018914611,
   "index": "https://Gerardo1209.github.io/Rick-and-Morty-API-Frontend/index.html",
   "assetGroups": [
     {
@@ -12,7 +12,7 @@
       },
       "urls": [
         "https://Gerardo1209.github.io/Rick-and-Morty-API-Frontend/index.html",
-        "https://Gerardo1209.github.io/Rick-and-Morty-API-Frontend/main-WGCSMRLR.js",
+        "https://Gerardo1209.github.io/Rick-and-Morty-API-Frontend/main-ZRDTIMAF.js",
         "https://Gerardo1209.github.io/Rick-and-Morty-API-Frontend/manifest.webmanifest",
         "https://Gerardo1209.github.io/Rick-and-Morty-API-Frontend/polyfills-RX4V3J3S.js",
         "https://Gerardo1209.github.io/Rick-and-Morty-API-Frontend/scripts-DWL7UUE4.js",
@@ -55,9 +55,9 @@
     "https://Gerardo1209.github.io/Rick-and-Morty-API-Frontend/assets/images/Rick_and_Morty.svg": "152be0fe53bef1b826d69936e640831fa8c363a6",
     "https://Gerardo1209.github.io/Rick-and-Morty-API-Frontend/assets/images/portal.png": "02f740a9e76893313931961b7980f6e6ceed2b84",
     "https://Gerardo1209.github.io/Rick-and-Morty-API-Frontend/assets/images/starry-night-sky.jpg": "800f4bda2a558f9f7857247d9ccf241e19e768a8",
-    "https://Gerardo1209.github.io/Rick-and-Morty-API-Frontend/index.html": "f2dc93ca23724215b912e3ac2a8b633789175802",
-    "https://Gerardo1209.github.io/Rick-and-Morty-API-Frontend/main-WGCSMRLR.js": "40cd420e038a6c189d0dfcf623e1f7deb407b1ae",
-    "https://Gerardo1209.github.io/Rick-and-Morty-API-Frontend/manifest.webmanifest": "e512ca5032bd1dc82fdf0999d7993319165099dd",
+    "https://Gerardo1209.github.io/Rick-and-Morty-API-Frontend/index.html": "d03eaf31cd55c99731385192a4a297aaf3d12685",
+    "https://Gerardo1209.github.io/Rick-and-Morty-API-Frontend/main-ZRDTIMAF.js": "d7bed328bf4b8c1ecb79614c3c9d8245e0729d90",
+    "https://Gerardo1209.github.io/Rick-and-Morty-API-Frontend/manifest.webmanifest": "814a79d27f154435f01a580be2c3b5dd388176cc",
     "https://Gerardo1209.github.io/Rick-and-Morty-API-Frontend/media/Inter-italic.var-SWFAXF2C.woff2": "6f20a046917bf86d4b6cc29c4e2515bd64d2cb9b",
     "https://Gerardo1209.github.io/Rick-and-Morty-API-Frontend/media/Inter-roman.var-WIJJYAE4.woff2": "7a2602d2ebb08ce895e33addb6fe595f1029431e",
     "https://Gerardo1209.github.io/Rick-and-Morty-API-Frontend/media/color-3LUHUBGQ.png": "ff4c4bcb2207891b292f544edb4da9d2df5d45cf",
